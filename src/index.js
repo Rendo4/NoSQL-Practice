@@ -11,14 +11,15 @@ import { createFirestoreInstance } from 'redux-firestore';
 import firebase from "./firebase";
 import formVisibleReducer from './reducers/form-visible-reducer';
 import ticketListReducer from './reducers/ticket-list-reducer';
-
+import 'firebase/auth';
 const store = createStore(rootReducer);
 
 
 const rrfProps = {
   firebase,
   config: {
-        userProfile: "users"
+        userProfile: "users",
+        useFirestoreForProfile: true,
     },
   dispatch: store.dispatch,
   createFirestoreInstance
